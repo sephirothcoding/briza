@@ -82,12 +82,12 @@ BUTTERFLY.prototype = {
 			
 			var gradient = context.createRadialGradient(0, 0, 0, 0, 0, 80),
 				rate = Math.sin(this.theta / 4);
-			gradient.addColorStop(0, 'hsl(273, 63%, 59%)');
+			gradient.addColorStop(0, 'hsl(45, 100%, 50%)');
 			gradient.addColorStop(0.3, 'hsl(291, 46%,  ' + (76 + 10 * rate) +  '%)');
 			gradient.addColorStop(0.5, 'hsl(291, 46%, ' + (76 + 20 * rate) +  '%)');
 			gradient.addColorStop(1, 'hsl(291, 46%, ' + (76 + 30 * rate) +  '%)');
 			context.lineWidth = 3;
-			context.strokeStyle = 'hsl(273, 63%, 59%)';
+			context.strokeStyle = 'hsl(45, 100%, 50%)';
 			context.fillStyle = gradient;
 			
 			context.save();
@@ -113,7 +113,7 @@ BUTTERFLY.prototype = {
 			context.restore();
 			
 			context.lineWidth = 2;
-			context.strokeStyle = 'hsl(273, 63%, 59%)';
+			context.strokeStyle = 'hsl(45, 100%, 50%)';
 			context.beginPath();
 			context.moveTo(-2, -10);
 			context.bezierCurveTo(-5, -20, -3 - Math.sin(this.theta), -30, -8 - Math.sin(this.theta), -40);
@@ -122,9 +122,9 @@ BUTTERFLY.prototype = {
 		}
 		context.save();
 		var gradient = context.createLinearGradient(-3, 0, 3, 0);
-		gradient.addColorStop(0, 'hsl(291, 46%, 76%)');
-		gradient.addColorStop(0.5, 'hsl(291, 46%, 76%)');
-		gradient.addColorStop(1, 'hsl(291, 46%, 76%)');
+		gradient.addColorStop(0, 'hsl(45, 100%, 50%)');
+		gradient.addColorStop(0.5, 'hsl(45, 100%, 50%)');
+		gradient.addColorStop(1, 'hsl(45, 100%, 50%)');
 		context.fillStyle = gradient;
 		context.beginPath();
 		context.moveTo(0, -10);
@@ -135,56 +135,4 @@ BUTTERFLY.prototype = {
 		context.moveTo(3, -8);
 		context.arc(0, -8, 3, 0, Math.PI, false);
 		context.stroke();
-		context.arcTo(0, 60, 3, -8, 2);
-		context.fill();
-		context.restore();
-		context.restore();
-		
-		this.theta += this.DELTA_THETA;
-		this.theta %= Math.PI * 4;
-		this.phi += this.DELTA_PHI;
-		this.phi %= Math.PI * 2;
-		this.vx = Math.sin(this.phi) * this.swingRate;
-		this.x += this.vx;
-		this.y += this.vy;
-		return this.createParticles();
-	}
-};
-var PARTICLE = function(renderer, x, y){
-	this.renderer = renderer;
-	this.x = x;
-	this.y = y;
-	this.init();
-};
-PARTICLE.prototype = {
-	FRICTION : 0.99,
-	RADIUS : 2,
-	DELTA_OPACITY : 0.005,
-	
-	init : function(){
-		this.x += this.renderer.getRandomValue(-50, 50);
-		var theta = this.renderer.getRandomValue(0, Math.PI * 2);
-		this.vx = Math.cos(theta);
-		this.vy = Math.sin(theta);
-		this.opacity = 1;
-	},
-	render : function(context){
-		context.save();
-		context.translate(this.x, this.y);
-		context.scale(2 - this.opacity, 2 - this.opacity);
-		context.beginPath();
-		context.fillStyle =  'hsla(273, 63%, 59%, ' + this.opacity + ')';
-		context.arc(0, 0, this.RADIUS, 0, Math.PI * 2, false);
-		context.fill();
-		context.restore();
-		this.x += this.vx;
-		this.y += this.vy;
-		this.vx *= this.FRICTION;
-		this.vy *= this.FRICTION;
-		this.opacity = Math.max(0, this.opacity - this.DELTA_OPACITY);
-		return this.opacity > 0;
-	}
-};
-$(function(){
-	RENDERER.init();
-});
+		context
