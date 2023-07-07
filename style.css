@@ -46,7 +46,7 @@ p span {
   margin: 0 auto;
   text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
   /* Clip Background Image */
-  background: linear-gradient(90deg, rgba(96,35,108,1) 0%, rgba(180,92,218,1) 48%, rgba(233,178,245,1) 100%);
+  background: linear-gradient(90deg, rgba(96,35,108,1) 0%, rgba(250,252,19) 48%, rgba(233,178,245,1) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   /* Animate Background Image */
