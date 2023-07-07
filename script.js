@@ -82,12 +82,12 @@ BUTTERFLY.prototype = {
 			
 			var gradient = context.createRadialGradient(0, 0, 0, 0, 0, 80),
 				rate = Math.sin(this.theta / 4);
-			gradient.addColorStop(0, 'hsl(45, 100%, 50%)');
+			gradient.addColorStop(0, 'hsl(45, 100%, 75%)');
 			gradient.addColorStop(0.3, 'hsl(291, 46%,  ' + (76 + 10 * rate) +  '%)');
 			gradient.addColorStop(0.5, 'hsl(291, 46%, ' + (76 + 20 * rate) +  '%)');
 			gradient.addColorStop(1, 'hsl(291, 46%, ' + (76 + 30 * rate) +  '%)');
 			context.lineWidth = 3;
-			context.strokeStyle = 'hsl(45, 100%, 50%)';
+			context.strokeStyle = 'hsl(45, 100%, 75%)';
 			context.fillStyle = gradient;
 			
 			context.save();
@@ -113,7 +113,7 @@ BUTTERFLY.prototype = {
 			context.restore();
 			
 			context.lineWidth = 2;
-			context.strokeStyle = 'hsl(45, 100%, 50%)';
+			context.strokeStyle = 'hsl(45, 100%, 75%)';
 			context.beginPath();
 			context.moveTo(-2, -10);
 			context.bezierCurveTo(-5, -20, -3 - Math.sin(this.theta), -30, -8 - Math.sin(this.theta), -40);
@@ -173,7 +173,7 @@ PARTICLE.prototype = {
 		context.translate(this.x, this.y);
 		context.scale(2 - this.opacity, 2 - this.opacity);
 		context.beginPath();
-		context.fillStyle =  'hsla(45, 100%, 50%, ' + this.opacity + ')';
+		context.fillStyle =  'hsla(45, 100%, 75%, ' + this.opacity + ')';
 		context.arc(0, 0, this.RADIUS, 0, Math.PI * 2, false);
 		context.fill();
 		context.restore();
